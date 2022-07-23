@@ -1,0 +1,629 @@
+% FortySecondsCV LaTeX template
+% Copyright © 2019-2020 René Wirnata <rene.wirnata@pandascience.net>
+% Licensed under the 3-Clause BSD License. See LICENSE file for details.
+%
+% Please visit https://github.com/PandaScience/FortySecondsCV for the most
+% recent version! For bugs or feature requests, please open a new issue on
+% github.
+%
+% Contributors:
+% https://github.com/PandaScience/FortySecondsCV/graphs/contributors
+%
+% Attributions
+% ------------
+% * fortysecondscv is based on the twentysecondcv class by Carmine Spagnuolo
+%   (cspagnuolo@unisa.it), released under the MIT license and available under
+%   https://github.com/spagnuolocarmine/TwentySecondsCurriculumVitae-LaTex
+% * further attributions are indicated immediately before corresponding code
+
+
+%-------------------------------------------------------------------------------
+%                             ADDITIONAL PACKAGES
+%-------------------------------------------------------------------------------
+\documentclass[
+	a4paper,
+	% 9pt,
+	% sidesectionsize=Large,
+	% showframes,
+	% vline=2.2em,
+	% maincolor=cvgreen,
+	% sidecolor=gray!50,
+	% sidetextcolor=green,
+	% sectioncolor=red,
+	% subsectioncolor=orange,
+	% itemtextcolor=black!80,
+	% sidebarwidth=0.4\paperwidth,
+	% topbottommargin=0.03\paperheight,
+	% leftrightmargin=20pt,
+	% profilepicsize=4.5cm,
+	% profilepicborderwidth=3.5pt,
+	% profilepicstyle=profilecircle,
+	% profilepiczoom=1.0,
+	% profilepicxshift=0mm,
+	% profilepicyshift=0mm,
+	% profilepicrounding=1.0cm,
+	% logowidth=4.5cm,
+	% logospace=5mm,
+	% logoposition=before,
+	% sidebarplacement=right,
+]{fortysecondscv}
+
+% fine tune line spacing
+% \usepackage{setspace}
+% \setstretch{1.1}
+
+% improve word spacing and hyphenation
+\usepackage{microtype}
+\usepackage{ragged2e}
+
+% uncomment in case you don't want any hyphenation
+% \usepackage[none]{hyphenat}
+
+% take care of proper font encoding
+\ifxetexorluatex
+	\usepackage{fontspec}
+	\defaultfontfeatures{Ligatures=TeX}
+	% \newfontfamily\headingfont[Path=fonts/]{segoeuib.ttf} % use local font
+\else
+	\usepackage[utf8]{inputenc}
+	\usepackage[T1]{fontenc}
+\fi
+
+% use a sans serif font as default
+\usepackage[sfdefault]{ClearSans}
+% \usepackage[sfdefault]{noto}
+
+% multi-language CV XeLaTeX and polyglossia (should also work with LuaLaTeX)
+% NOTE: breaks \pointskill, \membership and some spacings
+% \ifxetexorluatex
+% 	\usepackage{polyglossia}
+% 	\newfontfamily\arabicfontsf[Script=Arabic,Scale=1.5]{Amiri}
+% 	\newfontfamily\englishfontsf{Clear Sans}
+% 	\setmainfont{Amiri}
+% 	\setdefaultlanguage{arabic}
+% 	\setotherlanguage{english}
+% \fi
+
+% enable mathematical syntax for some symbols like \varnothing
+\usepackage{amssymb}
+
+% bubble diagram configuration
+\usepackage{smartdiagram}
+\smartdiagramset{
+	% default font size is \large, so adjust to harmonize with sidebar layout
+	bubble center node font = \footnotesize,
+	bubble node font = \footnotesize,
+	% default: 4cm/2.5cm; make minimum diameter relative to sidebar size
+	bubble center node size = 0.4\sidebartextwidth,
+	bubble node size = 0.25\sidebartextwidth,
+	distance center/other bubbles = 1.5em,
+	% set center bubble color
+	bubble center node color = maincolor!70,
+	% define the list of colors usable in the diagram
+	set color list = {maincolor!10, maincolor!40,
+	maincolor!20, maincolor!60, maincolor!35},
+	% sets the opacity at which the bubbles are shown
+	bubble fill opacity = 0.8,
+}
+
+%-------------------------------------------------------------------------------
+%                            PERSONAL INFORMATION
+%-------------------------------------------------------------------------------
+%% mandatory information
+% your name
+%%%\cvname{Panda Bear}
+\cvname{David Elías Panigo}
+% job title/career
+%%% \cvjobtitle{Panda Scientist,\\[0.2em] Panda of the Year}
+\cvjobtitle{Bioestadística\\[0.2em]Ciencia de Datos \\[0.2em]Desarrollos en R y Shiny}
+%% optional information
+% profile picture
+\cvprofilepic{pics/profile.png}
+% logo picture
+%%% \cvlogopic{pics/logo_txt.png}
+
+% NOTE: ordering in sidebar will mimic the following order
+% date of birth
+\cvbirthday{Junio 30, 1988}
+% phone number
+\cvphone{+54 3517867005}
+% personal website
+%%%\cvsite{https://pandascience.net}
+\cvsite{www.r-medic.com}
+% email address
+\cvmail{d.eliaspanigo@gmail.com}
+% pgp key
+%%% \cvkey{4096R/FF00FF00}{0xAABBCCDDFF00FF00}
+% any other custom entry
+\cvcustomdata{\faFlag}{Argentino}
+
+%-------------------------------------------------------------------------------
+%                              SIDEBAR 1st PAGE
+%-------------------------------------------------------------------------------
+% add more profile sections to sidebar on first page
+\addtofrontsidebar{
+	% include gosquare national flags from https://github.com/gosquared/flags;
+	% naming according to ISO 3166-1 alpha-2 country codes
+	\graphicspath{{pics/flags/shiny/}}
+
+	% social network accounts incl. proper hyperlinks
+	\sidesection{Redes Sociales}
+		\begin{icontable}{2.5em}{1em}
+			%%%\social{\faLeaf}
+	\social{\faGoogle}
+			{https://scholar.google.com/citations?user=JBwkF9IAAAAJ}
+			{Scholar Google Link}
+
+			\social{\faLinkedin}
+				{https://www.linkedin.com/in/deliaspanigo}
+				{Linkedin Link}
+		%%%	\social{\faGithub}
+		%%%		{https://github.com/PandaScience/FortySecondsCV}
+		%%%		{Github Project Page Link}
+				\social{\faInstagram}
+			{https://www.instagram.com/anti.goliat}
+			{Instagram Link}	
+
+				
+				
+		\end{icontable}
+
+	\sidesection{Lenguages}
+		%%%\pointskill{\flag{CN.png}}{Chinese}{5}
+		\pointskill{\flag{SP.png}}{Español}{5}
+	%%%	\pointskill{\flag{DE.png}}{German}{3}
+	\pointskill{\flag{GB.png}}{English}{3}
+	%%% \pointskill{\flag{FR.png}}{French}{3}
+
+	\sidesection{Habilidades fuertes}
+		\skill{\faCompress}{Bioestadística}
+		\skill{\faCompress}{Modelos Lineales y Estadística no paramétrica}
+		\skill{\faCompress}{Modelos predictivos}
+		\skill{\faCompress}{Desarrollos y automatización de reportes estadísticos con R, Shiny y LaTeX}
+		\skill{\faCompress}{Planificación y capacitaciones}
+
+%	\sidesection{Soft Skills}
+%		\pointskill{\faHome}{Looking Cute}{4}[4]
+%			\skill[1.8em]{\faCompress}{No need to specify further}
+%		\pointskill{\faChild}{Chillin' hard}{3}[4]
+%			\skill[1.8em]{\faCompress}{On a tree}
+%			\skill[1.8em]{\faCompress}{In the grass}
+
+	\sidesection{En desarrollo}
+%\skill[1.8em]{\faCompress}{Geomática (QGIS y Snap)}			
+\skill{\faCompress}{Geomática (QGIS y Snap)}			
+
+\skill{\faCompress}{Python}			
+\skill{\faCompress}{Estadística Multivariada}
+\skill{\faCompress}{RMarkdown}			
+					
+}
+
+
+%-------------------------------------------------------------------------------
+%                              SIDEBAR 2nd PAGE
+%-------------------------------------------------------------------------------
+%\addtobacksidebar{
+%	\sidesection{About Me}
+%	\aboutme{
+%		The giant panda is a terrestrial animal and primarily spends its life
+%		roaming and feeding in the bamboo forests of the Qinling Mountains and in
+%		the hilly province of Sichuan.
+%	}
+%
+%	\sidesection{Diagrams}
+%	\begin{sidebarminipage}
+%		\chartlabel{Bubble}
+%		\chartlabel{Diagrams}
+%		\chartlabel{with}
+%		\chartlabel{proper}
+%		\chartlabel{overflow}
+%		\chartlabel{protection}
+%		\chartlabel{for}
+%		\chartlabel{labels}
+%%	\end{sidebarminipage}
+%
+%	\begin{figure}\centering
+%		\smartdiagram[bubble diagram]{
+%			\textcolor{white}{\textbf{Being a}} \\
+%			\textcolor{white}{\textbf{Panda}}, % center bubble
+%			\textcolor{black!90}{Eating},
+%			\textcolor{black!90}{Sleeping},
+%			\textcolor{black!90}{Rolling},
+%			\textcolor{black!90}{Playing},
+%			\textcolor{black!90}{Chilling}
+%		}
+%	\end{figure}
+%
+%	\chartlabel{Wheel Chart}
+%
+%	\wheelchart{3.7em}{2em}{%
+%	20/3em/maincolor!50/Chill,
+%	15/3em/maincolor!15/Play,
+%	30/4em/maincolor!40/Sleep,
+%	20/3em/maincolor!20/Eat
+%	}
+%
+%	\sidesection{Barskills}
+%	\barskill{\faSkyatlas}{Wearing asian rice hats}{60}
+%	\barskill{\faImage}{Playing Chess}{30}
+%	\barskill{\faMusic}{Playing the bamboo flute}{50}
+%
+%	\sidesection{Memberships}
+%	\begin{memberships}
+%		\membership[4em]{pics/logo.png}{PandaScience.net}
+%		\membership[4em]{pics/logo.png}{Some longer text spanning over more than
+%			only one line}
+%	\end{memberships}
+%}
+
+
+%-------------------------------------------------------------------------------
+%                         TABLE ENTRIES RIGHT COLUMN
+%-------------------------------------------------------------------------------
+\begin{document}
+
+\makefrontsidebar
+
+
+\cvsection{Estudios Universitarios}
+\begin{cvtable}[1.5]
+	\cvitem{2022-2023}{Maestría en Aplicaciones de Información Espacial (MAIE)}{CONAE - Instituto Gulich}
+	{En curso}\\
+
+	\cvitem{2020}{Biólogo (Egresado - Título de grado)}{Universidad Nacional de Córdoba}
+	{Facultad de Ciencias Exactas Físicas y Naturales (FCEFyN)\\
+    Matrícula profesional:  A 1417 }\\
+
+	\cvitem{2018}{Bachiller en Ciencias Aplicadas (Egresado)}{Universidad Nacional de Córdoba}
+	{Facultad de Ciencias Exactas Físicas y Naturales (FCEFyN)}\\
+
+	
+	\cvitem{}{Lic. en Computación (1er año)}{Universidad Nacional de Córdoba}
+	{Facultad de Matemática, Astronomía y Física (FaMAF)}
+	
+	%	\cvitem{}{Master Theses ($\varnothing\, 1,0$)}{Asian Rice Hat Institute}
+	%		{Impact of solar radiation onto rice hat cover materials with special
+	%		attention to water resistance.}
+	%	\cvitem{2003 -- 2006}{Bachelor Studies PandaScience}{Panda Academy}
+	%		{Focus: Bamboo morphology and its usage in different craftmanships.}
+	%	\cvitem{}{Bachelor Theses ($\varnothing\, 1,0$)}{Bamboo Institute}
+	%		{The bambo flute: An underestimated instrument in orchestras?}
+		\\
+\end{cvtable}
+
+\cvsection{Cursos y Diplomaturas}
+\begin{cvtable}[1.5]
+	\cvitem{2022}{Maestría en Aplicaciones de Información Espascial}{CONAE - Instituto Gulich}
+	{
+	- Matemática (60hs) \\
+	- Estadística (60hs)\\
+	- Introducción a la Teledetección (60hs)\\
+	- Introducción a las herramientasla Teledetección (60hs)\\
+	- Introducción a las técnicas inteligentes de resolución de problemas de planificación, secuenciación y ejecución (60hs)\\
+	- Programación y Métodos Numéricos orientado al tratamiento de información espacial (60hs)\\
+	- Teledetección Ambiental (60hs)\\
+	- Procesamiento Digital de imágenes satelitales y sistemas de información geográfica (60hs)\\
+	- Aplicaciones de imágenes de radar en apertura sintética (60 hs)\\
+	- Modelos numéricos de alerta temprana, mapas de riesgo y simulación (60hs)\\
+	- Análisis espacial y situaciones de riesgo (60 hs)\\
+	- Herramientas de evaluación, monitoreo y gestión ambiental (60 hs)\\
+	- Metodología de la investigación y herramientas para la elabiración de la tesis (60hs)\\
+	}
+	\\
+	\cvitem{2020 -- 2021}{Diplomatura en Geomática aplicada}{CONAE - Instituto Gulich}
+	{Imágenes satelitáles e imágenes SAR}
+	\\
+	\cvitem{2019}{Curso: Introducción a Deep Learning y Redes Neuronales}{Universidad Nacional de Córdoba}
+	{Deep learning aplicado a imágenes biomédicas}
+	\\
+	\cvitem{2015}{Diplomatura en Bioestadística básica aplicada mediada con entorno R}{Universidad Nacional de Córdoba}
+	{Bioestadística y aplicaciones en R}
+	\\
+	\cvitem{2015}{Curso de posgrado de Modelos Lineales Generales con R}{Universidad Nacional de Córdoba}
+	{Bioestadística y aplicaciones en R}
+		\\
+\end{cvtable}
+
+
+	
+\cvsection{Software}
+%%%\cvsubsection{Postgraduate Training}
+\begin{cvtable}[1.5]
+	\cvitem{Sistemas Operativos}{Debian 10 (Linux), Windows}
+	{}
+	\\
+	\cvitem{Programación y entornos}{R, Shiny, Python, LaTeX, RStudio}
+	{}
+	\\
+\cvitem{Control y manejo de versiones}{Git y GitHub}
+	{}
+	\\
+	\\
+	\cvitem{Otros softwares estadísticos}{RMedic, SPSS, Infostat}
+	{}
+	\\
+	\\
+	\cvitem{Geomática}{QGIS, Snap}
+	{}
+	\\
+\end{cvtable}
+
+
+%-------------------------------------------------------------------------------
+%                         TABLE ENTRIES RIGHT COLUMN
+%-------------------------------------------------------------------------------
+\cvsection{Experiencia Laboral}
+\begin{cvtable}[1.5]
+
+	\cvitem{2016 -- 2022}{Desarrollador R y Shiny}{Universidad Católica de Córdoba}{Desarrollador del proyecto 	\textcolor{cyan}{\underline{http://www.r-medic.com}} \\RMedic es una interfaz web para trabajar con R y un asesor estadístico automatizado. Desarrollado íntegramente con R y Shiny y diseñado para el brindar apoyo estadístico a grupos de investigación científica y médica.}
+	\\
+	
+	\cvitem{2011 -- 2022}{Científico de Datos}{Universidad Nacional de Córdoba}{
+		A través del centro de vinculación EFADoC perteneciente a la Facultad de Ciencias Exactas, brindando asesoramiento estadístico a grupos de investigación científica, grupos médicos y empresas a través de la creación de reportes automatizados con R, Shiny y LaTeX; capacitaciones y dirección de diseños estadístico.}
+	\\
+	
+
+	
+	\cvitem{2012 -- 2013}{Científico de Datos}{Instituto Privado de Radioterapia}{
+			Epidemiología de enfermedades no transmisibles: Cáncer.\\
+			Práctica Profesional Supervisada bajo convenio con la Facultad de Ciencias Exactas.\\
+	Estadística actuarial (Sobrevida de Kaplan-Meier y modelos de Cox). Aplicaciones de estadística no paramétrica. Generación de reportes estadísticos en R y LaTeX para publicaciones y congresos internacionales.}
+\\
+\end{cvtable}
+
+%-------------------------------------------------------------------------------
+%                         TABLE ENTRIES RIGHT COLUMN
+%-------------------------------------------------------------------------------
+
+
+\cvsection{Docencia Universitaria}
+\begin{cvtable}[1.5]
+\cvitem{2022}{Bioestadística I y Bioestadística II}{Universidad Nacional de Córdoba}{
+	Docente por concurso. Jefe de trabajos prácticos. Carrera de Ciencias Biológicas. Facultad de Ciencias Exactas, Fïsicas y Naturales}
+
+	
+	\\
+\cvitem{2022}{Bases de Metodología de la Investigación}{Universidad Católica de Córdoba}{
+	Titular interino. Carrera de Instrumentación Quirúrgica}
+
+	
+	\\
+\cvitem{2021 - 2022}{Introducción a la Investigación Científica}{Universidad Católica de Córdoba}{
+	Docente. Carrera de Ciencias Médicas}
+
+	
+	\\
+	
+		\cvitem{2015 -- 2022}{Docencia Universitaria}{Universidad Nacional de Córdoba}{
+	Brindando capacitación en Bioestadística y R para grupos de investigación científica en dos cursos que se dictan todos los años desde EFADoC-UNC a través de plataforma Moodle: \\
+- "Diplomatura en Bioestadística básica aplicada mediada con entorno R"\\
+- "Curso de posgrado de Modelos Lineales Generales con R"}
+	\\
+	
+	
+\end{cvtable}
+
+
+
+%-------------------------------------------------------------------------------
+%                         TABLE ENTRIES RIGHT COLUMN
+%-------------------------------------------------------------------------------
+
+
+%\newpage
+
+\cvsection{Conferencias dictadas}
+\begin{cvtable}[1.5]
+	\cvpubitem{Errores Catastróficos en Bases de Datos}{Hospital San Roque - Córdoba - Argentina}
+	{}{2018}
+	\\
+	\cvpubitem{Orden y Progreso: el inicio de un trabajo científico}{Hospital San Roque - Córdoba - Argentina}{}{2018}
+	
+\end{cvtable}
+
+
+\cvsection{Publicaciones Científicas}
+\begin{cvtable}
+	\cvpubitem{Evolución de las publicaciones científicas de la Facultad de Ciencias Exactas Físicas y Naturales en el período 1995-2021 }
+		{A Mangeaud, H Cugno,  \textbf{DE Panigo}, JFM Suárez, A González}
+		{ Revista de la Facultad de Ciencias Exactas, Físicas y Naturales 9 (1), 61-66.\\
+		\textcolor{cyan}{\underline{https://revistas.unc.edu.ar/index.php/FCEFyN/article/view/36669}}}
+		{2022}
+	\\
+
+\cvpubitem{Análisis morfométrico de poblaciones larvales de Rhinella arenarum (Anura: Bufonidae) provenientes de ambientes con distinto nivel de perturbación antropogénica}
+		{\textbf{Elías Panigo, D. H.} ., Fernández Bellone, M. del R. ., Roggio, M. A. ., \& Carezzano, F. J.}
+		{Intropica, 17(1)\\
+		\textcolor{cyan}{\underline{https://doi.org/10.21676/23897864.4175}}}
+		{2022}
+	\\
+
+	\cvpubitem{R-Medic. Un programa de análisis estadísticos sencillo e intuitivo}
+		{Mangeaud A , \textbf{Elías Panigo DH}}
+		{Revista Methodo 3 (1) 18-22\\
+		\textcolor{cyan}{\underline{https://doi.org/10.22529/me.2019.4(1)05}}}
+		{2020}
+	\\
+	
+	\cvpubitem{Unequal Appropriation of Urban Vegetation in Argentine Cities}
+		{Spescha, V.; Paolini, L.; Powell, P.; Covaro, B; \textbf{Elías, D.}; Aráoz, E}
+		{Ecosystems\\
+		\textcolor{cyan}{\underline{https://doi.org/10.1007/s10021-019-00476-5}}}
+		{2020}
+	\\
+
+	\cvpubitem{Effect of the mating plug on female chemical attractiveness and mating acceptance in a scorpion}
+		{Romero Lebrón E., Oviedo Diego M. A., \textbf{Elias D.}, Vrech D. E. \& Peretti A. V.}
+		{Ethology, 125 (4): 184-194\\
+		\textcolor{cyan}{\underline{https://doi.org/10.1111/eth.12842}}}
+		{2019}
+	\\
+	
+		\cvpubitem{Morfometría de Physalaemus biligonigerus (Anura: Leptodactylidae) en dos ambientes con distinta perturbación}
+	{Chiapero, F.; S. Flores Mariscal;  \textbf{D. Elias Panigo}, y F. J. Carezzano.}
+	{The Biologist (Lima), 17 (1): 59-61\\
+		\textcolor{cyan}{\underline{http://dx.doi.org/10.24039/rtb2019171292}}}
+	{2019}
+	\\
+	
+		\cvpubitem{Silent Dissemination of HTLV-1 in an endemic area of Argentina. Epidemiological and molecular evidence of intrafamilial transmission}
+	{Frutos MC. Gastaldello R. Balangero M. Remondegui C. Blanco S. Otsuki K. Paulo Vicente AC. \textbf{Elías D.} Mangeaud A. Nates S. Gallego S.}
+	{PLoS ONE 12(4): e0174920\\
+		\textcolor{cyan}{\underline{https://doi.org/10.1371/journal.pone.0174920}}}
+	{2017}
+	\\
+	
+
+	
+	\cvpubitem{First Description of Seronegative HTLV-1 Carriers in Argentina}
+	{Gallego S. Frutos MC. Blanco S. Castro G. Balangero M. \textbf{Elías D.} Mangeaud A. Remondegui C. Rocha A.S. Franco G. M. Martins M.L. Barbosa-Stancioli E.F. Nates S.}
+	{PLoS ONE 12(4): e0174920\\
+		\textcolor{cyan}{\underline{https://doi.org/10.4269/ajtmh.19-0647}}}
+	{2017}
+	
+	
+
+\end{cvtable}
+
+
+
+
+\cvsection{Ayudantías en grupos de investigación}
+\begin{cvtable}
+	\cvpubitem{Proyecto de Investigación Categoría Estimular: ''Estado sanitario de poblaciones de especies de anamniotas de agroecosistemas del sur de Córdoba''}
+	{Avalado y subsidiado por SeCyT, Universidad Nacional de Córdoba. 2018-2019. Desarrollado en la Cátedra de Morfología Animal de la Escuela de Biología de la Facultad de Ciencias Exactas, Físicas y Naturales. Subsidiado por SeCyT. Director: Biól. Carezzano, Fernando.}
+	{}
+	{2018 -- 2019}
+	\\
+	
+	\cvpubitem{Proyecto de Investigación Categoría B: ''Estado sanitario de poblaciones de anfibios anuros de agroecosistemas en humedales del sur de Córdoba''}
+	{Avalado y subsidiado por SeCyT, Universidad Nacional de Córdoba. Desarrollado en la Cátedra de Morfología Animal de la Escuela de Biología de la Facultad de Ciencias Exactas, Físicas y Naturales. Subsidiado por SeCyT. Director: Biól. Carezzano, Fernando.}
+	{}
+	{2014 -- 2015}
+		\\
+	
+	\cvpubitem{Pasantía de investigación - CADIC}
+	{Centro Austral de Investigaciones Científicas - Ushuaia - Tierra del Fuego - Argentina}
+	{}
+	{2012}
+	
+	
+
+\end{cvtable}
+
+
+\cvsection{Pósters en Medicina}
+% \cvsubsection{Medicina}
+\begin{cvtable}
+	\cvpubitem{Reirradiación en pacientes con cáncer de mama recaídas después de radioterapia adjuvante postmastectomía o tratamiento conservador}{Natalia Torres MD, Carlos Alberto Buelvas Pérez MD, Patricia Murina MD, Pablo Castro Peña MD, Andrés Del Castillo MD, Soledad Del Castillo MD , David Hernán Elías Panigo , Silvia Zunino MD, PhD}
+	{Poster presentado en 'Breast Cancer Symposium Internacional de Mastología'. Río de Janeiro, Brasil}{2013}
+\end{cvtable}
+
+\cvsection{Pósters en Ciencias Biológicas}
+\begin{cvtable}
+
+	\cvpubitem{Estudio morfométrico comparado de \textit{Physalaemus biligonigerus} (Anura) en dos sitios con diferente perturbación antrópica en Córdoba, Argentina.}{XXI Jornadas Científicas de la Sociedad de Biología de Córdoba}{La Falda. Córdoba, Argentina.}{2017}
+	\\
+
+	\cvpubitem{Análisis morfométrico de poblaciones de \textit{Rhinella arenarum} (Anura) en ambientes con diferentes niveles de perturbación antrópica en el chaco seco, Argentina}
+	{XXI Jornadas Científicas de la Sociedad de Biología de Córdoba}{La Falda. Córdoba, Argentina.}{2017}
+	\\
+
+
+	\cvpubitem{Caracterización morfométrica de \textit{Bufo arenarum} (AMPHIBIA, BUFONIDAE) de un agroecosistema del sur de Córdoba}
+	{IV Congreso Nacional de Anatomistas, III Congreso Internacional de Educación e Investigación en Ciencias Morfológicas y I Jornadas Nacional e Internacional de Morfología para estudiantes de Ciencias de la Salud. Universidad Nacional de Córdoba. Córdoba, Argentina.}{}{2013}
+	\\
+
+	\cvpubitem{Análisis trófico de la batracofauna relacionada a lagunas incluidas en agroecosistemas del sur de Córdoba}
+	{IV Congreso Nacional de Anatomistas, III Congreso Internacional de Educación e Investigación en Ciencias Morfológicas y I Jornadas Nacional e Internacional de Morfología para estudiantes de Ciencias de la Salud.}{Universidad Nacional de Córdoba. Córdoba, Argentina.}{2013}
+	\\
+\end{cvtable}
+
+\begin{cvtable}
+	\cvpubitem{Aportes sobre la morfometría de \textit{Hypsiboas pulchellus} (AMPHIBIA, HYLIDAE)}
+	{IV Congreso Nacional de Anatomistas, III Congreso Internacional de Educación e Investigación en Ciencias Morfológicas y I Jornadas Nacional e Internacional de Morfología para estudiantes de Ciencias de la Salud.}{Universidad Nacional de Córdoba. Córdoba, Argentina.}{2013}
+	
+	
+
+	
+\end{cvtable}
+
+
+%  \cvsection{Awards}
+%  \begin{cvtable}
+%  	\cvitem{2010 -- now}{Panda of the Year}{Panda World Forum}{}
+%  	\cvitem{2005 -- now}{Face of World Wide Fund for Nature}{WWF}{}
+%  	\cvitem{2000}{Winner of Bamboo Sprouts Eating Contest}{Bamboo Society}{}
+%  \end{cvtable}
+
+
+\cvsection{Actividades extracurriculares}
+\begin{cvtable}
+	\cvitemshort{Taekwondo WT}{1er Dan - Ex deportista de alto rendimiento y competidor internacional - Selección Argentina.}
+	
+\end{cvtable}
+
+
+%\newpage
+%\makebacksidebar
+% \newgeometry{
+% 	top=\topbottommargin,
+% 	bottom=\topbottommargin,
+% 	right=\leftrightmargin,
+% 	left=\leftrightmargin
+% }
+
+%  \cvsection{section}
+%  \cvsubsection{Subsection}
+%  \begin{cvtable}
+%  	\cvitem{<dates>}{<cv-item title>}{<location>}{<optional: description>}
+%  \end{cvtable}
+
+%  \cvsection{cvitem}
+%  \cvsubsection{Multi-line with longer description}
+%  \begin{cvtable}
+%  	\cvitem{date}{Description}{location}{Some longer and more detailed
+%  		description, that takes two lines of space instead of only one.}
+%  	\cvitem{date}{Description}{location}{Some longer and more detailed
+%  		description, that takes two lines of space instead of only one.}
+%  	\cvitem{date}{Description}{location}{Some longer and more detailed
+%  		description, that takes two lines of space instead of only one.}
+%  \end{cvtable}
+
+% \cvsubsection{One-line without description}
+% \begin{cvtable}
+% 	\cvitem{Award}{One-line description}{Sponsor}{}
+% 	\cvitem{Award}{One-line description}{Sponsor}{}
+% 	\cvitem{Award}{One-line description}{Sponsor}{}
+%  \end{cvtable}
+
+%  \cvsection{cvitemshort}
+%  \cvsubsection{One-line}
+%  \begin{cvtable}
+%  	\cvitemshort{Key}{Some further description}
+%  	\cvitemshort{Key}{Some further description}
+%  	\cvitemshort{Key}{Some further description}
+%  \end{cvtable}
+
+%  \cvsubsection{Multi-line with longer description}
+%  \begin{cvtable}
+%  	\cvitemshort{Key}{Some further description. Can fill even more than
+%  		only one single line while still keeping the correct indendation level.}
+%  	\cvitemshort{Key}{Some further description. Can fill even more than
+%  		only one single line while still keeping the correct indendation level.}
+%  	\cvitemshort{Key}{Some further description. Can fill even more than
+%  		only one single line while still keeping the correct indendation level.}
+%  \end{cvtable}
+
+%  \cvsection{cvpubitem}
+%  \begin{cvtable}
+%  	\cvpubitem{Publication title}{Authors}{Journal}{Year}
+%  	\cvpubitem{Publication title}{Authors}{Journal}{Year}
+%  	\cvpubitem{Publication title that is spanning over multiple lines and still
+%  		does not look too bad}{Authors}{Journal}{Year}
+%  \end{cvtable}
+
+%%% \cvsignature
+
+\end{document}
